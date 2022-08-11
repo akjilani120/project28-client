@@ -1,9 +1,12 @@
 import React from 'react';
+import AddCanvas from './AddCanvas';
 
-const AtBoard = () => {
+const AtBoard = ({user}) => {
     return (
-        <div>
-            <h1>I am At Board</h1>
+        <div className='atboard-header'>
+           <h1 className='text-primary text-center py-3'>Artboard</h1>
+        
+         <AddCanvas user ={user}/>
         </div>
     );
 };

@@ -1,3 +1,30 @@
 .reg-head{
     background-color: silver;
 }
+.login-header{
+    height: 100vh;
+   
+}
+.reg-main{
+    display: flex;
+    justify-content: center;
+    padding: 30px;
+    align-items: center;
+}
+.reg-body{
+    width: 60%;
+    background-color: white;
+    border: 1px solid skyblue;
+    padding: 25px;
+    border-radius: 8px;
+    box-shadow: 5px 10px 20px skyblue;
+}
+.canvas-head{
+    height: 100vh;
+}
+
+@media screen and (max-width:768px) {
+    .reg-body{
+        width: 100%;
+    }
+}

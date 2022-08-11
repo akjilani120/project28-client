@@ -1,9 +1,11 @@
 import React from 'react';
 import { useForm } from "react-hook-form";
+import { Link, useNavigate } from 'react-router-dom';
 import {  toast } from 'react-toastify';
 import './Registation.css'
 const Registation = () => {
     const { register, handleSubmit, reset } = useForm();
+    const navigate = useNavigate()
     const imgStorageKey = 'a20408031904de293b263e5a8f8e5393'
     const onSubmit = data => {
         const formData = new FormData();
@@ -27,7 +29,7 @@ const Registation = () => {
                     img,
                     password
                 }
-               fetch('http://localhost:5000/users', {
+               fetch('https://nameless-fortress-11357.herokuapp.com/users', {
                     method:"POST",
                     headers:{
                         "content-type" : "application/json"
@@ -36,9 +38,10 @@ const Registation = () => {
                 })
                 .then(res => res.json())
                 .then(data =>{
-                    console.log(data)
+                   
                     if(data){
-                        toast("Success , Send your data")
+                        toast("Success , Registation Successfull")
+                        navigate("/")
                        
                     }else{
                         toast("not success ,donot Send your data")
@@ -52,7 +55,8 @@ const Registation = () => {
         <div className='reg-head'>
             <div className='container'>
               <div className='reg-main'>
-                <div>
+                <div className='reg-body'>
+                    <h2 className='text-center text-primary'>Please Registation</h2>
                 <form onSubmit={handleSubmit(onSubmit)}>
                <div class="mb-3">
                     <label for="exampleInputEmail1" class="form-label">Full Name</label>
@@ -74,10 +78,12 @@ const Registation = () => {
                     <input className='form-control'  type="password" {...register("password", { required: true })} />
                         
                 </div>
-               <div class="mb-3">
-               <input type="submit" />
-                        
+                <h6>If You have account <Link to="/">Login Now</Link>  </h6>
+               <div class="my-4 text-center">
+               <input className='btn btn-primary px-4 py-2' type="submit" />  
+
                 </div>
+               
                </form>
                 </div>
               </div>
